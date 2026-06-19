@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Ceremonia · Ludovica & Juan Diego</title>
+<meta name="description" content="Guion de la ceremonia simbólica de Ludovica y Juan Diego. Documento vivo." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FAF4E9; --paper-2:#F4EAD8; --paper-3:#EFE3CE;
+    --ink:#2B2521; --ink-2:#4A4039; --muted:#8A7B6B;
+    --accent:#A24E2E; --accent-2:#C2703F; --gold:#BE9C63;
+    --sage:#5F6B49; --sage-bg:#EAEAD3; --sage-line:#C7C9A6;
+    --amber:#9C6B16; --amber-bg:#FAF0D6; --amber-line:#E2C078;
+    --rule:rgba(43,37,33,.14);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --body:'Newsreader',Georgia,'Times New Roman',serif;
+    --maxw:46rem;
+    font-size:18px;
+  }
+  @media (max-width:640px){ :root{ font-size:17px; } }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-weight:400; line-height:1.7;
+    font-size:calc(1rem * var(--scale,1));
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, rgba(190,156,99,.16), rgba(190,156,99,0) 60%),
+      radial-gradient(90% 60% at 90% 8%, rgba(162,78,46,.07), rgba(162,78,46,0) 55%);
+    background-attachment:fixed;
+  }
+  /* faint paper grain */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  /* reading progress */
+  #bar{position:fixed; top:0; left:0; height:3px; width:0; z-index:50;
+    background:linear-gradient(90deg,var(--accent),var(--gold)); transition:width .12s ease-out;}
+
+  /* toolbar */
+  #tools{position:fixed; top:.9rem; right:.9rem; z-index:40; display:flex; gap:.4rem;
+    background:rgba(250,244,233,.86); backdrop-filter:blur(7px);
+    border:1px solid var(--rule); border-radius:999px; padding:.32rem .4rem;
+    box-shadow:0 6px 24px -14px rgba(43,37,33,.55);}
+  #tools button{font-family:var(--body); font-size:.82rem; color:var(--ink-2);
+    background:transparent; border:0; border-radius:999px; padding:.28rem .56rem; cursor:pointer; line-height:1;
+    transition:background .15s,color .15s;}
+  #tools button:hover{background:var(--paper-3); color:var(--accent);}
+  #tools .sep{width:1px; background:var(--rule); margin:.15rem .1rem;}
+
+  .wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:clamp(2.2rem,6vw,4.5rem) clamp(1.15rem,5vw,2.2rem) 5rem;}
+
+  /* ---------- header ---------- */
+  header.masthead{text-align:center; padding-top:1.5rem;}
+  .eyebrow{font-family:var(--body); font-style:italic; color:var(--accent);
+    letter-spacing:.04em; font-size:.95rem; margin:0 0 1.4rem;}
+  .eyebrow::before,.eyebrow::after{content:"·"; color:var(--gold); margin:0 .6rem;}
+  .names{font-family:var(--serif); font-weight:300; line-height:.98;
+    font-size:clamp(2.9rem,11vw,5rem); margin:0; letter-spacing:-.01em;}
+  .names .amp{font-style:italic; font-weight:300; color:var(--accent); padding:0 .12em;}
+  .legal{font-family:var(--body); color:var(--muted); font-size:.92rem; margin:1.1rem 0 0; letter-spacing:.01em;}
+  .meta{font-family:var(--body); color:var(--ink-2); margin:.6rem 0 0; font-size:1.02rem;}
+  .meta b{font-weight:500;}
+  .flourish{display:flex; align-items:center; justify-content:center; gap:1rem; margin:2.1rem 0 .4rem; color:var(--gold);}
+  .flourish .l{height:1px; width:min(7rem,22vw); background:linear-gradient(90deg,transparent,var(--gold));}
+  .flourish .l.r{background:linear-gradient(90deg,var(--gold),transparent);}
+  .flourish .d{font-size:.9rem; letter-spacing:.3em; color:var(--accent);}
+
+  .live{display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; justify-content:center;
+    margin:2.3rem auto 0; max-width:34rem; padding:.85rem 1.1rem;
+    background:var(--paper-2); border:1px solid var(--rule); border-radius:14px;
+    font-family:var(--body); font-size:.9rem; color:var(--ink-2);}
+  .live .dot{width:.5rem; height:.5rem; border-radius:50%; background:var(--accent); box-shadow:0 0 0 0 rgba(162,78,46,.5);
+    animation:pulse 2.6s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(162,78,46,.45);}70%{box-shadow:0 0 0 7px rgba(162,78,46,0);}100%{box-shadow:0 0 0 0 rgba(162,78,46,0);}}
+  .live .stamp{color:var(--muted);}
+
+  /* ---------- legend ---------- */
+  .legend{margin:2rem auto 0; max-width:38rem; border:1px dashed var(--rule); border-radius:14px;
+    padding:1rem 1.2rem; background:rgba(244,234,216,.5);}
+  .legend h4{font-family:var(--body); text-transform:uppercase; letter-spacing:.14em; font-size:.72rem;
+    color:var(--muted); margin:0 0 .7rem; font-weight:500;}
+  .legend ul{list-style:none; margin:0; padding:0; display:grid; gap:.45rem; font-size:.88rem; color:var(--ink-2);}
+  .legend li{display:flex; gap:.6rem; align-items:baseline;}
+  .legend .sw{flex:0 0 auto; width:1.4rem; text-align:center; font-style:italic; color:var(--muted);}
+  .legend .chip{display:inline-block; width:.85rem; height:.85rem; border-radius:3px; transform:translateY(.05rem);}
+  .legend .chip.sage{background:var(--sage-bg); border:1px solid var(--sage-line);}
+  .legend .chip.amber{background:var(--amber-bg); border:1px solid var(--amber-line);}
+
+  /* ---------- index ---------- */
+  nav.toc{margin:3rem auto 0; max-width:34rem;}
+  nav.toc h4{font-family:var(--body); text-transform:uppercase; letter-spacing:.16em; font-size:.72rem;
+    color:var(--muted); text-align:center; margin:0 0 1rem; font-weight:500;}
+  nav.toc ol{list-style:none; counter-reset:t; margin:0; padding:0;}
+  nav.toc li{counter-increment:t; border-bottom:1px solid var(--rule);}
+  nav.toc a{display:flex; align-items:baseline; gap:.9rem; padding:.62rem .2rem; text-decoration:none; color:var(--ink);
+    font-family:var(--body); transition:color .15s,padding .15s;}
+  nav.toc a:hover{color:var(--accent); padding-left:.5rem;}
+  nav.toc a::before{content:counter(t,decimal-leading-zero); font-family:var(--serif); font-style:italic;
+    color:var(--accent); font-size:.95rem; min-width:1.6rem;}
+  nav.toc .ttl{flex:1;}
+  nav.toc .kind{font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em;}
+
+  /* ---------- sections ---------- */
+  main{margin-top:1rem;}
+  section.s{margin-top:3.6rem; scroll-margin-top:1.5rem;}
+  .s-head{display:flex; align-items:flex-start; gap:1.1rem; margin-bottom:1.4rem;}
+  .s-num{font-family:var(--serif); font-weight:300; font-size:clamp(2.2rem,7vw,3rem); line-height:.8;
+    color:var(--accent); opacity:.85; min-width:2.3rem;}
+  .s-kicker{font-family:var(--body); text-transform:uppercase; letter-spacing:.16em; font-size:.7rem;
+    color:var(--muted); margin:.35rem 0 .2rem; font-weight:500;}
+  .s-title{font-family:var(--serif); font-weight:400; font-size:clamp(1.7rem,4.6vw,2.2rem); line-height:1.06;
+    margin:0; letter-spacing:-.01em;}
+  .s-title em{font-style:italic; color:var(--accent-2);}
+
+  .cue{font-family:var(--body); font-style:italic; color:var(--muted); font-size:.95rem;
+    margin:1.2rem 0 .5rem; padding-left:.9rem; border-left:2px solid var(--gold);}
+  .speaker{font-family:var(--body); text-transform:uppercase; letter-spacing:.18em; font-size:.7rem;
+    font-weight:500; color:var(--accent); margin:1.3rem 0 .25rem;}
+  .say{font-size:1.16rem; line-height:1.78; margin:.25rem 0 .9rem; color:var(--ink);}
+  .say.resp{font-style:italic; color:var(--ink-2);}
+  .say strong{font-weight:500;}
+
+  /* reading / Gibran */
+  .reading{margin:1.4rem 0 .5rem; padding:1.6rem 1.5rem 1.6rem 1.8rem; position:relative;
+    background:linear-gradient(180deg,var(--paper-2),rgba(244,234,216,.35));
+    border:1px solid var(--rule); border-radius:16px;}
+  .reading::before{content:"\201C"; position:absolute; top:-.3rem; left:.7rem; font-family:var(--serif);
+    font-size:4.4rem; color:var(--gold); opacity:.5; line-height:1;}
+  .reading .src{font-family:var(--body); font-style:italic; color:var(--muted); font-size:.85rem;
+    text-align:right; margin:.9rem 0 0; letter-spacing:.02em;}
+  .verse{font-family:var(--serif); font-weight:300; font-size:1.18rem; line-height:1.62; color:var(--ink);
+    margin:.15rem 0;}
+  .verse.lead{font-style:italic; color:var(--ink-2); margin-bottom:.5rem;}
+  .verse.sp{margin-top:1rem;}
+
+  /* ritual panel */
+  .ritual{margin:1.3rem 0; background:var(--sage-bg); border:1px solid var(--sage-line);
+    border-radius:16px; padding:1.3rem 1.5rem;}
+  .ritual .tag{display:inline-flex; align-items:center; gap:.45rem; font-family:var(--body);
+    text-transform:uppercase; letter-spacing:.16em; font-size:.68rem; font-weight:500; color:var(--sage); margin-bottom:.6rem;}
+  .ritual .tag::before{content:"✦"; font-size:.8rem;}
+  .ritual .say{color:#3C422E;}
+  .ritual .cue{color:#6c7556; border-color:var(--sage-line);}
+
+  /* pending / todo */
+  .todo{margin:1.1rem 0; background:var(--amber-bg); border:1px dashed var(--amber-line);
+    border-radius:14px; padding:.95rem 1.2rem; color:#6f5212; font-family:var(--body); font-size:.95rem;}
+  .todo .tag{display:block; text-transform:uppercase; letter-spacing:.16em; font-size:.66rem; font-weight:500;
+    color:var(--amber); margin-bottom:.4rem;}
+  .todo b{font-weight:600;}
+
+  /* production note (not read aloud) */
+  .note{margin:.7rem 0 0; font-family:var(--body); font-size:.84rem; color:var(--muted);
+    background:rgba(43,37,33,.035); border-radius:10px; padding:.5rem .8rem;}
+  .note b{color:var(--ink-2); font-weight:500;}
+  .note::before{content:"Nota · "; color:var(--accent); font-style:italic;}
+
+  .divider{display:flex; justify-content:center; margin:3.4rem 0 0; color:var(--gold); font-size:.9rem; letter-spacing:.5em;}
+
+  footer{margin-top:4rem; padding-top:2rem; border-top:1px solid var(--rule); text-align:center;
+    font-family:var(--body); color:var(--muted); font-size:.86rem;}
+  footer .h{font-family:var(--serif); font-style:italic; color:var(--accent); font-size:1.3rem; margin:0 0 .6rem;}
+  footer a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid var(--rule);}
+
+  /* entrance animation */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0; transform:translateY(14px); animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+    @keyframes rise{to{opacity:1; transform:none;}}
+    .masthead .eyebrow{animation-delay:.05s} .masthead .names{animation-delay:.14s}
+    .masthead .legal{animation-delay:.24s} .masthead .meta{animation-delay:.30s}
+    .masthead .flourish{animation-delay:.38s} .live{animation-delay:.46s}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    :root{font-size:11.5pt;}
+    body{background:#fff; color:#000;}
+    body::before,#bar,#tools,.live .dot{display:none !important;}
+    .wrap{max-width:none; padding:0;}
+    a{color:#000; text-decoration:none;}
+    .reading,.ritual,.todo,.live,.legend,nav.toc{break-inside:avoid; box-shadow:none;}
+    section.s{break-inside:avoid-page; margin-top:1.6rem;}
+    .reveal{opacity:1 !important; transform:none !important; animation:none !important;}
+    .accent,.s-num,.eyebrow,.speaker,.s-title em,.names .amp{color:#000 !important;}
+    .ritual{background:#f4f4ee;} .todo{background:#fbf6ea;}
+  }
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+<div id="tools" role="toolbar" aria-label="Herramientas de lectura">
+  <button id="dec" title="Texto más pequeño" aria-label="Texto más pequeño">A−</button>
+  <button id="inc" title="Texto más grande" aria-label="Texto más grande">A+</button>
+  <span class="sep"></span>
+  <button id="prt" title="Imprimir o guardar PDF" aria-label="Imprimir">Imprimir</button>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow reveal">Guion de ceremonia simbólica</p>
+    <h1 class="names reveal">Ludovica <span class="amp">&amp;</span> Juan Diego</h1>
+    <p class="legal reveal">Stephany Ludovica Salazar Gordillo &nbsp;·&nbsp; Juan Diego Villacís Morales</p>
+    <p class="meta reveal"><b>20 de junio de 2026</b> &nbsp;·&nbsp; Quito, Ecuador &nbsp;·&nbsp; Oficia: <b>Ernesto</b></p>
+    <div class="flourish reveal"><span class="l"></span><span class="d">✦</span><span class="l r"></span></div>
+
+    <div class="live reveal">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>Documento vivo.</b> Esta página se actualiza cuando ajustamos el guion. Refresca para ver la última versión.</span>
+      <span class="stamp" id="stamp">Actualizado: 19 jun 2026, 00:17</span>
+    </div>
+
+    <div class="legend reveal" aria-label="Cómo leer este guion">
+      <h4>Cómo leer este guion</h4>
+      <ul>
+        <li><span class="sw">A</span><span><b>Texto grande</b> = lo que se dice en voz alta.</span></li>
+        <li><span class="sw"><em>i</em></span><span><b>Itálica gris con línea dorada</b> = indicación de escena. No se lee.</span></li>
+        <li><span class="sw"><span class="chip sage"></span></span><span><b>Panel verde</b> = ritual (una acción que ocurre).</span></li>
+        <li><span class="sw"><span class="chip amber"></span></span><span><b>Panel ámbar</b> = pendiente por definir o por escribir.</span></li>
+      </ul>
+    </div>
+
+    <nav class="toc reveal" aria-label="Índice">
+      <h4>Orden de la ceremonia</h4>
+      <ol>
+        <li><a href="#bienvenida"><span class="ttl">Bienvenida</span><span class="kind">palabras</span></a></li>
+        <li><a href="#reflexion"><span class="ttl">Reflexión</span><span class="kind">palabras</span></a></li>
+        <li><a href="#lectura"><span class="ttl">Lectura · El Profeta</span><span class="kind">lectura</span></a></li>
+        <li><a href="#vela"><span class="ttl">Encender la vela</span><span class="kind">ritual</span></a></li>
+        <li><a href="#manos"><span class="ttl">Atado de manos</span><span class="kind">ritual</span></a></li>
+        <li><a href="#intencion"><span class="ttl">Declaración de intención</span><span class="kind">votos</span></a></li>
+        <li><a href="#anillos"><span class="ttl">Votos y anillos</span><span class="kind">votos</span></a></li>
+        <li><a href="#proclamacion"><span class="ttl">Proclamación</span><span class="kind">palabras</span></a></li>
+        <li><a href="#cierre"><span class="ttl">Despedida</span><span class="kind">palabras</span></a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 1 -->
+    <section class="s" id="bienvenida">
+      <div class="s-head"><span class="s-num">01</span><div><p class="s-kicker">Apertura</p><h2 class="s-title">Bienvenida</h2></div></div>
+      <p class="cue">Ernesto, a los invitados.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Por favor, tomen asiento… Gracias.</p>
+      <p class="say">Amigos, familia y seres queridos: hoy nos reunimos, ante la vida y ante ustedes como testigos, para unir a <strong>Juan Diego Villacís Morales</strong> y <strong>Stephany Ludovica Salazar Gordillo</strong> en matrimonio. Nos congregamos a su alrededor, en este lugar maravilloso, y los miramos con amor y esperanza mientras estos dos comienzan su nueva vida juntos.</p>
+      <p class="note"><b>"como uno solo"</b> se quitó al final (idea de Ernesto). Si prefieren una apertura más espiritual, "ante la vida" puede ser "ante lo divino".</p>
+    </section>
+
+    <!-- 2 -->
+    <section class="s" id="reflexion">
+      <div class="s-head"><span class="s-num">02</span><div><p class="s-kicker">Palabras de Ernesto</p><h2 class="s-title">Reflexión</h2></div></div>
+      <p class="cue">Ernesto, a los invitados.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">El matrimonio es una institución sagrada: una tradición de compañerismo, de confianza y de apoyo mutuo para navegar los mares a veces tormentosos de la vida. Requiere trabajo, compromiso y sacrificio, pero sobre todo necesita una base sólida, y esa base es el amor. ¿Pero qué clase de amor? El que nace de estar dispuestos a sacrificarse, a superarlo todo juntos y a mantener una comunicación abierta, incluso cuando es difícil. Sobre esa base se construyen la confianza, la intimidad y todo lo hermoso que hace que un matrimonio valga la pena.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="s" id="lectura">
+      <div class="s-head"><span class="s-num">03</span><div><p class="s-kicker">Lectura</p><h2 class="s-title">El Profeta <em>· Kahlil Gibran</em></h2></div></div>
+      <p class="cue">Ernesto introduce la lectura.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Y si el amor es la base, también necesita espacio para respirar. Sobre eso hay unas palabras que lo dicen mejor que nadie. Las escribió Kahlil Gibran en su libro <em>El Profeta</em> hace más de un siglo, y siguen siendo verdad:</p>
+
+      <div class="reading">
+        <p class="verse lead">Entonces Almitra habló de nuevo y dijo: «¿Y qué hay del matrimonio, maestro?»</p>
+        <p class="verse lead">Él respondió:</p>
+        <p class="verse sp">Nacieron juntos, y juntos permanecerán para siempre.</p>
+        <p class="verse">Estarán juntos cuando las blancas alas de la muerte dispersen sus días.</p>
+        <p class="verse">Sí, estarán juntos incluso en el silencioso recuerdo de Dios.</p>
+        <p class="verse sp">Pero que haya espacio en su unión,</p>
+        <p class="verse">y que los vientos del cielo dancen entre ustedes.</p>
+        <p class="verse sp">Ámense, pero no hagan del amor una atadura:</p>
+        <p class="verse">que sea más bien un mar en movimiento entre las orillas de sus almas.</p>
+        <p class="verse sp">Llenen la copa del otro, pero no beban de la misma copa.</p>
+        <p class="verse">Compartan su pan, pero no coman del mismo pan.</p>
+        <p class="verse sp">Canten y bailen juntos y regocíjense, pero que cada uno de ustedes tenga su propia soledad,</p>
+        <p class="verse">como las cuerdas del laúd, aunque vibran con la misma música, están solas.</p>
+        <p class="verse sp">Entreguen sus corazones, pero no los pongan bajo la custodia del otro.</p>
+        <p class="verse">Pues solo la mano de la Vida puede contener sus corazones.</p>
+        <p class="verse sp">Y permanezcan juntos, pero no demasiado cerca:</p>
+        <p class="verse">Porque las columnas del templo se alzan separadas,</p>
+        <p class="verse">y el roble y el ciprés no crecen a la sombra el uno del otro.</p>
+        <p class="src">— Kahlil Gibran, <em>El Profeta</em></p>
+      </div>
+      <p class="note">Esta lectura también la puede leer un invitado (un testigo, alguien cercano). Cambiar de voz aquí le da mucha fuerza al momento.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="s" id="vela">
+      <div class="s-head"><span class="s-num">04</span><div><p class="s-kicker">Ritual</p><h2 class="s-title">Encender la vela</h2></div></div>
+      <div class="ritual">
+        <span class="tag">Ritual</span>
+        <p class="cue">Ludovica y Juan Diego se acercan a la vela.</p>
+        <p class="speaker">Ernesto</p>
+        <p class="say">Antes de seguir, Ludovica y Juan Diego van a encender una vela. Una sola llama que, desde hoy, alumbra el hogar que están formando.</p>
+      </div>
+      <div class="todo">
+        <span class="tag">Por definir</span>
+        <b>Detalle del ritual de la vela.</b> Confirmar el sentido (unidad de la pareja / luz del nuevo hogar / memoria de un ser querido), quién enciende, desde qué velas, las palabras exactas y si hay música. Lo escribimos juntos.
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="s" id="manos">
+      <div class="s-head"><span class="s-num">05</span><div><p class="s-kicker">Ritual · antes de los votos</p><h2 class="s-title">Atado de manos</h2></div></div>
+      <div class="ritual">
+        <span class="tag">Ritual</span>
+        <p class="cue">Ernesto explica el ritual a los invitados. Ludovica, Juan Diego y Noam se acercan.</p>
+        <p class="speaker">Ernesto</p>
+        <p class="say">Antes de que se hagan sus promesas, vamos a hacer algo muy antiguo: el atado de manos. Desde hace siglos, mucho antes de los anillos, las parejas unían sus manos con una cinta para sellar su compromiso. De ahí viene la expresión de "atar el nudo".</p>
+        <p class="say">Pero hoy este lazo significa algo todavía más grande, porque no une a dos, sino a tres. Ludovica y Juan Diego no empiezan una vida de a dos: la empiezan en familia, con Noam. Así que les voy a pedir a los tres que unan sus manos.</p>
+        <p class="cue">Se atan las manos de los tres con la cinta. Las manos quedan unidas durante la declaración que sigue.</p>
+      </div>
+      <div class="todo">
+        <span class="tag">Por definir</span>
+        <b>Detalle del atado.</b> Color y número de cintas, quién las coloca, las palabras exactas al momento de atar y cuándo se sueltan (o si se conservan atadas). Confirmar también cómo participa Noam en el nudo.
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="s" id="intencion">
+      <div class="s-head"><span class="s-num">06</span><div><p class="s-kicker">Votos</p><h2 class="s-title">Declaración de intención</h2></div></div>
+      <p class="cue">Ernesto, a la familia, con las manos aún unidas.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Ludovica, Juan Diego y Noam: con sus manos unidas, ¿están listos para proclamar, ante todos los que los queremos, el amor que hoy los une como familia?</p>
+      <p class="speaker">Los tres</p>
+      <p class="say resp">Lo estamos.</p>
+
+      <p class="cue">Ernesto, a Juan Diego.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Juan Diego, ¿aceptas a Ludovica como tu esposa? ¿Prometes honrarla y cuidarla, amarla y confiar en ella, en la alegría y en el dolor, en la salud y en la enfermedad, y en todo lo que la vida les traiga, todos los días de su vida?</p>
+      <p class="speaker">Juan Diego</p>
+      <p class="say resp">Sí, acepto.</p>
+
+      <p class="cue">Ernesto, a Ludovica.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Ludovica, ¿aceptas a Juan Diego como tu esposo? ¿Prometes honrarlo y cuidarlo, amarlo y confiar en él, en la alegría y en el dolor, en la salud y en la enfermedad, y en todo lo que la vida les traiga, todos los días de su vida?</p>
+      <p class="speaker">Ludovica</p>
+      <p class="say resp">Sí, acepto.</p>
+
+      <p class="cue">Ernesto, a Noam.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Y tú, Noam: hoy tu familia se une de una manera muy especial. ¿Estás listo para caminar junto a tu mamá y a tu papá, los tres como una sola familia, queriéndose y cuidándose siempre?</p>
+      <p class="speaker">Noam</p>
+      <p class="say resp">Sí.</p>
+      <p class="note">Ajustar las palabras para Noam según su edad y cómo nombra a sus papás (mamá/papá o nombres). "todos los días de su vida" reemplaza el clásico "hasta que la muerte los separe"; se puede volver al original si lo prefieren.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="s" id="anillos">
+      <div class="s-head"><span class="s-num">07</span><div><p class="s-kicker">Votos</p><h2 class="s-title">Votos y anillos</h2></div></div>
+      <p class="cue">Ernesto, a los invitados.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Ahora, Ludovica y Juan Diego van a intercambiar los anillos. El anillo es un símbolo de unión: de pertenencia y de compañía, no de posesión.</p>
+
+      <div class="todo">
+        <span class="tag">Por definir</span>
+        <b>Votos personales.</b> Si Ludovica y Juan Diego escribieron sus propios votos, los pegamos aquí (uno y otro). Si no, abajo queda la versión para repetir después de Ernesto.
+      </div>
+
+      <p class="cue">Si no hay votos escritos: cada uno repite, después de Ernesto.</p>
+      <p class="speaker">Ernesto → repite cada uno</p>
+      <p class="say">[Nombre], prometo amarte y comprometerme contigo toda mi vida. Prometo estar para ti cuando me necesites, ser honesto contigo, serte fiel solo a ti, y recorrer juntos los valles de la vida, igual que estaremos juntos en la cima de las montañas.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="s" id="proclamacion">
+      <div class="s-head"><span class="s-num">08</span><div><p class="s-kicker">El momento</p><h2 class="s-title">Proclamación</h2></div></div>
+      <p class="cue">Ernesto, a la pareja.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">Ludovica y Juan Diego: habiendo proclamado su amor y su compromiso, ante los ojos de todos los que los queremos, y con la fuerza de ese amor, me llena de alegría declararlos <strong>esposo y esposa</strong>.</p>
+      <p class="say">¡Pueden besarse!</p>
+      <p class="note">Versión simbólica. Si quieren la fórmula de la Universal Life Church ("con el poder que me confiere…"), la reponemos.</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="s" id="cierre">
+      <div class="s-head"><span class="s-num">09</span><div><p class="s-kicker">Cierre</p><h2 class="s-title">Despedida</h2></div></div>
+      <p class="cue">Ernesto, a los invitados.</p>
+      <p class="speaker">Ernesto</p>
+      <p class="say">¡Gracias a todos por acompañarnos en este momento tan especial en la vida de Ludovica y Juan Diego! Ahora nos invitan a celebrar con ellos. Gracias, de corazón.</p>
+      <p class="todo" style="margin-top:1rem;"><span class="tag">Por definir</span> Confirmar a dónde sigue la celebración (brindis / fiesta) para cerrar con esa frase.</p>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <footer>
+      <p class="h">Ludovica &amp; Juan Diego</p>
+      <p>Documento vivo de la ceremonia. Se actualiza a medida que afinamos el guion.</p>
+      <p class="stamp" id="stamp2">Última actualización: 19 de junio de 2026, 00:17</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  (function(){
+    // text size
+    var root=document.documentElement, scale=parseFloat(localStorage.getItem('cer-scale'))||1;
+    function apply(){ scale=Math.min(1.5,Math.max(.82,scale)); root.style.setProperty('--scale',scale); localStorage.setItem('cer-scale',scale); }
+    apply();
+    document.getElementById('inc').onclick=function(){ scale+=.08; apply(); };
+    document.getElementById('dec').onclick=function(){ scale-=.08; apply(); };
+    document.getElementById('prt').onclick=function(){ window.print(); };
+    // progress bar
+    var bar=document.getElementById('bar');
+    function prog(){ var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%'; }
+    document.addEventListener('scroll',prog,{passive:true}); window.addEventListener('resize',prog); prog();
+  })();
+</script>
+</body>
+</html>
